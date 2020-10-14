@@ -19,6 +19,8 @@ from .models import User, LearningSession
 # Create your views here.
 
 def index(request):
+    if not request.user.is_authenticated:
+        return render(request, 'learning_marathon/login.html')
     if request.method == 'POST':
         if request.user.now_learning:
             current_session = LearningSession.objects.filter(user=request.user).last()
