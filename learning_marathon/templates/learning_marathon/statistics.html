@@ -3,18 +3,28 @@
 {% block body %}
 <div class='p-md-5 m-1'>
     <div class='row align-content-center m-3 bg-dark' style='color:whitesmoke;border-radius:10px;min-height:70px'>
+<<<<<<< HEAD
         <div class='col-lg-2'>
         </div>
         <div class='col-lg-5'>
             <p id='name'>Milena</p>
         </div>
         <div class='col-lg-5 text-right'>
+=======
+        <div class='col-md-2'>
+        </div>
+        <div class='col-md-5'>
+            <p id='name'>Milena</p>
+        </div>
+        <div class='col-md-5 text-right display-4'>
+>>>>>>> add_non_udemy
             <p id='name'>Thomas</p>
         </div>
     </div>
 
 
     {% for day in data %}
+<<<<<<< HEAD
     <div class='row align-content-center m-3' style='min-height:50px'>
         <div class='col-lg-2'>
             {{ day.day }}
@@ -23,16 +33,34 @@
             {{ day.user1 }}
         </div>
         <div class='col-lg-4'>
+=======
+    <div class='row align-content-center m-3' style='height:50px'>
+        <div class='col-md-2'>
+            {{ day.day }}
+        </div>
+        <div class='col-md-1'>
+            {{ day.user1 }}
+        </div>
+        <div class='col-md-4'>
+>>>>>>> add_non_udemy
             {% for reward in day.user1_rewards|get_range %}
             <i style='height: 20px;font-size: 20px;' class="fas fa-star"></i>
             {% endfor %}
         </div>
+<<<<<<< HEAD
         <div class='col-lg-4 text-right'>
+=======
+        <div class='col-md-4 text-right'>
+>>>>>>> add_non_udemy
             {% for reward in day.user2_rewards|get_range %}
             <i style='height: 20px;font-size: 20px;' class="fas fa-star"></i>
             {% endfor %}
         </div>
+<<<<<<< HEAD
         <div class='col-lg-1 text-right'>
+=======
+        <div class='col-md-1 text-right'>
+>>>>>>> add_non_udemy
             {{ day.user2 }}
         </div>
 
