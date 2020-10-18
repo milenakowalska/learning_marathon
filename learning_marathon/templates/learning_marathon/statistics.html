@@ -1,38 +1,38 @@
 {% extends 'learning_marathon/layout.html' %}
 {% load static %}
 {% block body %}
-<div class='p-5 m-5'>
-    <div class='row align-content-center m-3 bg-dark' style='color:whitesmoke;border-radius:10px;height:70px'>
-        <div class='col-2'>
+<div class='p-md-5 m-1'>
+    <div class='row align-content-center m-3 bg-dark' style='color:whitesmoke;border-radius:10px;min-height:70px'>
+        <div class='col-md-2'>
         </div>
-        <div class='col-5'>
-            <h3>Milena</h3>
+        <div class='col-md-5'>
+            <p id='name'>Milena</p>
         </div>
-        <div class='col-5 text-right display-4'>
-            <h3>Thomas</h3>
+        <div class='col-md-5 text-right display-4'>
+            <p id='name'>Thomas</p>
         </div>
     </div>
 
 
     {% for day in data %}
     <div class='row align-content-center m-3' style='height:50px'>
-        <div class='col-2'>
+        <div class='col-md-2'>
             {{ day.day }}
         </div>
-        <div class='col-1'>
+        <div class='col-md-1'>
             {{ day.user1 }}
         </div>
-        <div class='col-4'>
+        <div class='col-md-4'>
             {% for reward in day.user1_rewards|get_range %}
             <i style='height: 20px;font-size: 20px;' class="fas fa-star"></i>
             {% endfor %}
         </div>
-        <div class='col-4 text-right'>
+        <div class='col-md-4 text-right'>
             {% for reward in day.user2_rewards|get_range %}
             <i style='height: 20px;font-size: 20px;' class="fas fa-star"></i>
             {% endfor %}
         </div>
-        <div class='col-1 text-right'>
+        <div class='col-md-1 text-right'>
             {{ day.user2 }}
         </div>        
     
