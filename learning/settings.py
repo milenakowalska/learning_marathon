@@ -25,7 +25,7 @@ SECRET_KEY = '09_=vf#_1700p0p^)z27(%+h%4wue-^wn-ki6np+yeaau5tg*n'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['learnudemy.pythonanywhere.com']
 
 
 # Application definition
@@ -119,11 +119,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = "/home/learnudemy/learning_marathon/learning_marathon/static/"
 
 AUTH_USER_MODEL = 'learning_marathon.User'
 
 LOGIN_REDIRECT_URL='/'
 
-AUTHENTICATION_BACKENDS = ( 
-    'django.contrib.auth.backends.ModelBackend', 
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
 )

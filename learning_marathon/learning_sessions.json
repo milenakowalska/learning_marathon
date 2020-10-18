@@ -1,10 +1,1 @@
-{"learning_sessions": 
-    
-    [{"day": "2020-10-14",
-        "user1": "0:00:00", 
-        "user2": "0:00:00", 
-        "user1_rewards": "0", 
-        "user2_rewards": "0"}
-
-       
-        ]}
+{"learning_sessions": [{"day": "2020-10-14", "user1": "0:00:00", "user2": "0:00:00", "user1_rewards": "0", "user2_rewards": "0"}, {"day": "2020-10-15", "user1": "3:27:38", "user2": "6:14:13", "user1_rewards": "3", "user2_rewards": "6"}, {"day": "2020-10-16", "user1": "6:08:31", "user2": "0:00:00", "user1_rewards": "6", "user2_rewards": "0"}, {"day": "2020-10-17", "user1": "2:15:52", "user2": "10:04:54", "user1_rewards": "2", "user2_rewards": "10"}]}

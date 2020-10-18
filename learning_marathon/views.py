@@ -9,7 +9,6 @@ from pytz import timezone
 from . import make_statistics
 import datetime
 
-from django.template.defaulttags import register
 
 @register.filter
 def get_range(value):
@@ -49,6 +48,7 @@ def index(request):
 def statistics(request):
     make_statistics.update()
     data = make_statistics.get_data()
+    data = data[1:]
     users = User.objects.all()
     return render(request, 'learning_marathon/statistics.html', {'data':data, 'users':users})
 
@@ -63,7 +63,7 @@ def login_view(request):
             login(request, user)
             return HttpResponseRedirect(reverse('learning_marathon:index'))
         else:
-            return render (request, 
+            return render (request,
                         'learning_marathon/login.html',
                         {'error_message': f'Invalid credentials :-(, {username}, {password}'}
                     )
@@ -78,15 +78,15 @@ def register(request):
         confirmation = request.POST['confirmation']
 
         if password != confirmation:
-            return render (request, 
+            return render (request,
                         'learning_marathon/register.html',
                         {'error_message': 'Password must match!  :-('}
                     )
-        
+
         new_user = User.objects.create_user(first_name = first_name, username = username, password = password)
         new_user.save()
         login(request, new_user)
-        return render (request, 
+        return render (request,
                         'learning_marathon/index.html',
                         {'success_message': 'Congratulations! Registration successful :-)'}
                     )

@@ -3,6 +3,8 @@ from .models import User, LearningSession
 import datetime
 import os
 import re
+from pytz import timezone
+
 
 def day_summary(user, date):
     entries = LearningSession.objects.filter(user=user)
@@ -32,7 +34,7 @@ def add_daily_summary(new_data):
         data = json.load(json_file)
         learning_sessions = data['learning_sessions']
         learning_sessions.append(new_data)
-    
+
     with open (os.path.join(os.path.dirname(__file__),'learning_sessions.json'), 'w') as json_file:
         json.dump(data, json_file)
 
@@ -41,8 +43,8 @@ def update():
     with open (os.path.join(os.path.dirname(__file__),'learning_sessions.json')) as json_file:
         data = json.load(json_file)
         last_update = data['learning_sessions'][-1]['day']
-        if ((datetime.date.fromisoformat(last_update).day != (datetime.date.today().day)) and datetime.datetime.now().hour > 7):
-            new_entry = new_data(datetime.date.today())
+        if ((datetime.date.fromisoformat(last_update).day != (datetime.date.today().day - 1)) and datetime.datetime.now(tz=timezone('Europe/Warsaw')).hour > 6):
+            new_entry = new_data(datetime.date.today() - datetime.timedelta(days=1))
             add_daily_summary(new_entry)
 
 def get_data():
